@@ -1,5 +1,6 @@
 package com.example.loginapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,7 +17,9 @@ class MainActivity : AppCompatActivity() {
 
         btnLgn.setOnClickListener {
             if (etLgn.text.toString() == LOGIN && etPsw.text.toString() == PASSWORD) {
-                Toast.makeText(this, "SUCCESS", Toast.LENGTH_LONG).show()
+
+                startActivity(Intent(this, Main2Activity::class.java))
+
             }
             else if (etLgn.text.toString() == LOGIN) {
                 Toast.makeText(this, "Wrong Password!", Toast.LENGTH_LONG).show()
