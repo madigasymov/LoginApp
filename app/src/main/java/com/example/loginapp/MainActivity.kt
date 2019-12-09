@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 private const val LOGIN = "damu@fund.kz"
 private const val PASSWORD = "qwerty123"
+const val STRING_KEY = "KEY"
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,17 +17,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnLgn.setOnClickListener {
-            if (etLgn.text.toString() == LOGIN && etPsw.text.toString() == PASSWORD) {
-
-                startActivity(Intent(this, Main2Activity::class.java))
-
-            }
-            else if (etLgn.text.toString() == LOGIN) {
-                Toast.makeText(this, "Wrong Password!", Toast.LENGTH_LONG).show()
-            }
-            else {
-                Toast.makeText(this, "Wrong Login/Password!", Toast.LENGTH_LONG).show()
-            }
+            val intent = Intent(this, Main2Activity::class.java)
+            intent.putExtra(STRING_KEY, etLgn.text.toString())
+            startActivity(intent)
         }
 
         btnReg.setOnClickListener {Toast.makeText(this, "REGISTRATION", Toast.LENGTH_LONG).show()}
